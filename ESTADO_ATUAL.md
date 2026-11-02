@@ -130,9 +130,17 @@ Campos padrão: Nome da empresa, URL, Cidade, Estado, Categoria, Segmento, Funci
 - **CSV de 3.538 contatos**: Aparentemente IMPORTADO (7.027 contatos na base, incluindo os 3.538 do CSV + contatos do WhatsApp).
 
 ## Estratégia e campanha
-- **Reativação da Base**: Funil existe e contém 3.614 deals, todos parados na etapa 1.
-- **Dia D em 19/11/2026**: Planejamento histórico. Nenhuma configuração específica na Clint.
-- **Botox Week (03-07/11/2026)**: APROVADO para criação — origin separada com 5 etapas. PENDENTE DE EXECUÇÃO.
+- **Reativação da Base**: Funil existe e contém 3.614 deals, todos parados na etapa 1. **NÃO MEXER** — decisão do usuário (D17).
+- **Dia D em 19/11/2026**: Planejamento histórico. Continua como iniciativa separada do Botox Week.
+- **Botox Week (03-07/11/2026)**: APROVADO para criação — origin separada com 5 etapas. PENDENTE DE EXECUÇÃO (token expirado).
+  - **Mecânica**: Instagram orgânico → link Story/Bio → WhatsApp → auto-reply (4 msgs em 2 etapas) → link grupo VIP
+  - **Automação**: Via WhatsApp Business (Clint Aura), NÃO via API oficial
+  - **Meta**: 150 pessoas no grupo (D9)
+  - **Sem ADS**: Divulgação apenas orgânica pelo Instagram (D8)
+  - **LGPD**: Não se aplica — sem disparo ativo, apenas resposta a quem entra em contato (D6)
+  - **Equipe**: Usuário (Pedro) gerencia CRM e automação de direcionamento; Nathaly (SDR) cuida do atendimento e fechamento (D10)
+  - **Normalização 9o dígito**: Obrigatório e inegociável para base BR (D4), mas não bloqueia Botox Week (entrada nova)
+  - **Etapas aprovadas**: (1) Entrada via link, (2) Direcionado ao grupo, (3) No grupo, (4) Marcou procedimento, (5) Não respondeu
 
 ## Divergências handoff vs. realidade (ATUALIZADO)
 1. ~~Origin chamada "Nova Origem"~~ → CORRIGIDO: Nome real é "Reativação da Base" ✓
@@ -143,18 +151,59 @@ Campos padrão: Nome da empresa, URL, Cidade, Estado, Categoria, Segmento, Funci
 6. Campo "Especialidade proposta" → NÃO EXISTE (existe "Área de interesse" + subcampos)
 7. Todos os deals parados na etapa 1 — nenhum avanço no funil
 
+## Decisões bloqueantes — status atualizado (02/11/2026)
+
+| # | Decisão | Status | Resolução |
+|---|---------|--------|-----------|
+| D1 | Dia D continua? | ✅ RESOLVIDO | Sim, Dia D (19/11) continua. Botox Week é separado |
+| D2 | Plano Botox Week | ✅ RESOLVIDO | Mecânica completa fornecida pelo usuário |
+| D3 | Ofertas/condições | ✅ RESOLVIDO | 4 mensagens de automação, sem oferta complexa |
+| D4 | Normalizar 9o dígito | ✅ CONFIRMADO | Obrigatório e inegociável (aplica-se à base existente) |
+| D5 | Elegibilidade da base | ✅ RESOLVIDO | Botox Week não usa base existente, apenas leads novos |
+| D6 | LGPD | ✅ RESOLVIDO | Não se aplica — sem disparo, apenas resposta automática |
+| D7 | Capacidade profissional | ✅ RESOLVIDO | Tratado no grupo, fora do escopo CRM |
+| D8 | Orçamento ADS | ✅ RESOLVIDO | Zero — apenas orgânico Instagram |
+| D9 | Metas | ✅ RESOLVIDO | 150 pessoas no grupo |
+| D10 | RACI | ✅ RESOLVIDO | Pedro = CRM + automação; Nathaly = atendimento/fechamento |
+| D11 | Quem é "Cris"? | ⏸️ ABERTO | Sem resposta |
+| D12 | Regras do grupo | ✅ RESOLVIDO | Tratado no grupo, fora do escopo CRM |
+| D13 | Acesso à rede | ✅ RESOLVIDO | Auditoria concluída |
+| D14 | Cadências/SLAs | ⏸️ ADIADO | Usuário verá depois |
+| D15 | Campos obrigatórios | 🔄 PARCIAL | Usuário quer campos por etapa — proposta enviada, aguardando aprovação |
+| D16 | 7 números separados | ✅ RESOLVIDO | Não existe — apenas responsáveis no grupo |
+| D17 | Deals existentes | ✅ RESOLVIDO | Permanecem onde estão — NÃO MEXER |
+
 ## Pendências
 1. ~~Fazer auditoria somente leitura~~ ✓ CONCLUÍDA (conta correta)
-2. Criar Origin "Botox Week" com 5 etapas aprovadas — PENDENTE (aprovado pelo usuário)
-3. Configurar auto-reply Aura para Botox Week — PENDENTE
+2. Criar Origin "Botox Week" com 5 etapas aprovadas — PENDENTE (token expirado, precisa de novo token)
+3. Configurar auto-reply Aura para Botox Week — PENDENTE (4 mensagens: MSG01 + pergunta, MSG02 + link grupo)
 4. ~~Conectar canal WhatsApp~~ ✓ JÁ CONECTADO ("Atendimento Clínica")
-5. Reconciliar inventário e arquivos de importação
-6. Decidir sobre os 17 bloqueios (D1-D17) do plano integrado
+5. ~~Decidir sobre os 17 bloqueios (D1-D17)~~ ✓ 15/17 RESOLVIDOS (D11 aberto, D14 adiado)
+6. Definir campos por etapa do Botox Week — PENDENTE (proposta enviada, aguardando aprovação)
 7. Verificar/auditar as 4 automações Aura ativas (não visíveis via API)
+
+## Funil de mensagens — Botox Week (aprovado pelo usuário)
+
+**Fluxo:**
+1. Lead clica link (Story/Bio) → manda msg pré-preenchida no WhatsApp
+2. Auto-reply: MSG 01 (boas-vindas) + [3s delay] + PERGUNTA ("Posso te explicar como funciona?")
+3. Lead responde
+4. Auto-reply: MSG 02 (explicação Botox Week) + [3s delay] + MSG com link do grupo
+
+**Mensagens definidas pelo usuário (MSG 01 + PERGUNTA):**
+- MSG 01: Boas-vindas + teaser do evento
+- PERGUNTA: "Posso te explicar como funciona?"
+
+**Mensagens propostas pelo agente (MSG 02 + LINK — aguardando aprovação):**
+- MSG 02: Explicação do Botox Week (03-07 nov, condições exclusivas, grupo VIP)
+- MSG LINK: CTA com link do grupo WhatsApp + gatilho de escassez
+
+**Link do grupo:** `https://chat.whatsapp.com/KJ9y5nolEls3k9K2U3CJiq?s=cl&p=a&iam=2`
 
 ## Log de alterações
 | Data | Ação | Executada por |
 |---|---|---|
 | 02/11/2026 16:50 | Auditoria de leitura (CONTA ERRADA — Herval Marketing) | Agente (leitura) |
 | 02/11/2026 18:05 | Auditoria de leitura (CONTA CORRETA — Clínica Aesthesis) | Agente (leitura) |
-| — | Nenhuma alteração operacional realizada | — |
+| 02/11/2026 ~20:30 | Registro de 15/17 decisões bloqueantes resolvidas | Agente (documentação) |
+| — | Nenhuma alteração operacional na Clint realizada | — |
